@@ -69,7 +69,8 @@ var queryLimit = '&limit=10';
         $.get(query, function(results){
             //console.log(results.data);
             var giphyArray = results.data
-            //$('#gif-wrap').empty();
+            //empty out previous 10 gifs
+            $('#gif-wrap').empty();
             //display related images on the page
             for (var i = 0; i<giphyArray.length; i++){
                 //for each item in data array, 
@@ -87,7 +88,7 @@ var queryLimit = '&limit=10';
                 var img = $('<img>').attr('src', stillUrl).attr('alt', title).data('animate', animatedURL).data('still', stillUrl).addClass('gif');
                 var h3 = $('<h3>').text(rating);
 
-                $(div).append(h3, img); //looks like <div><h3></h3><img/></div>
+                $(div).append(img, h3); //looks like <div><img/><h3></h3></div>
 
                 $('#gif-wrap').append(div);
             };
